@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introducción a la Computación - Diego Armando Quispe Mattos</title>
+    <style>
+        :root {
+            --primary-teal: #008080;
+            --dark-teal: #005f5f;
+            --bg-gray: #e0e0e0;
+            --white: #ffffff;
+            --accent-blue: #e0f2f1;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-gray);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 1050px;
+            background: var(--white);
+            display: grid;
+            grid-template-columns: 1.8fr 1fr;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border-radius: 5px;
+            overflow: hidden;
+            min-height: 85vh;
+        }
+
+        /* --- COLUMNA IZQUIERDA: INVESTIGACIÓN INTERACTIVA --- */
+        .main-content {
+            padding: 40px;
+            border-right: 1px solid #eee;
+        }
+
+        .header-top {
+            display: flex;
+            align-items: center;
+            margin-bottom: 35px;
+            border-bottom: 2px solid var(--primary-teal);
+            padding-bottom: 15px;
+        }
+
+        .logo-aro {
+            border: 2px solid var(--primary-teal);
+            padding: 5px 25px;
+            border-radius: 50px;
+            color: var(--primary-teal);
+            font-weight: bold;
+            font-size: 1.6rem;
+            margin-right: 20px;
+        }
+
+        /* Estilo Acordeón para Subtítulos */
+        details {
+            margin-bottom: 15px;
+            background: #f8f9fa;
+            border-radius: 4px;
+            border: 1px solid #eceff1;
+        }
+
+        summary {
+            padding: 18px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--dark-teal);
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            outline: none;
+        }
+
+        summary:hover { background: var(--accent-blue); }
+
+        summary::after {
+            content: '+';
+            font-size: 1.4rem;
+            color: var(--primary-teal);
+        }
+
+        details[open] summary::after { content: '−'; }
+
+        .content-body {
+            padding: 0 20px 20px 20px;
+            line-height: 1.7;
+            color: #37474f;
+            font-size: 0.95rem;
+            animation: slideDown 0.3s ease;
+        }
+
+        /* --- COLUMNA DERECHA: INFORMACIÓN DEL AUTOR --- */
+        .sidebar {
+            background: #fcfcfc;
+            padding: 40px 25px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-header-btn {
+            background: var(--primary-teal);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-bottom: 0;
+            display: block;
+        }
+
+        .profile-card {
+            background: white;
+            border: 1px solid #eee;
+            padding: 25px;
+            text-align: center;
+            border-bottom-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .profile-img {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #ffffff 0%, #cfd8dc 100%);
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .profile-img svg { fill: #78909c; width: 45px; }
+
+        .author-name { 
+            font-size: 1.2rem; 
+            color: var(--dark-teal); 
+            font-weight: 800; 
+            margin: 10px 0 5px 0;
+            display: block;
+        }
+
+        .uni-info {
+            font-size: 0.8rem;
+            color: #546e7a;
+            line-height: 1.4;
+        }
+
+        .career-label {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 4px 12px;
+            background: var(--accent-blue);
+            color: var(--dark-teal);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <main class="main-content">
+        <div class="header-top">
+            <div class="logo-aro">&lt;ARO/&gt;</div>
+            <h2 style="margin:0; color: var(--primary-teal);">Introducción a la Computación</h2>
+        </div>
+
+        <details>
+            <summary>1. ¿Qué es una Computadora?</summary>
+            <div class="content-body">
+                Una computadora es una máquina electrónica capaz de recibir datos, procesarlos mediante un conjunto de instrucciones programadas y entregar resultados útiles. Su potencia radica en la velocidad de procesamiento y su capacidad casi infinita de almacenamiento de información digital.
+            </div>
+        </details>
+
+        <details>
+            <summary>2. Evolución y Generaciones</summary>
+            <div class="content-body">
+                Desde el ábaco hasta la computación en la nube, el camino ha sido largo:
+                <ul>
+                    <li><strong>Primera Generación:</strong> Uso de tubos de vacío y tarjetas perforadas.</li>
+                    <li><strong>Segunda Generación:</strong> Incorporación del transistor, permitiendo equipos más pequeños.</li>
+                    <li><strong>Tercera Generación:</strong> Invención de los circuitos integrados (chips de silicio).</li>
+                    <li><strong>Cuarta Generación:</strong> El microprocesador permite la revolución de la PC.</li>
+                </ul>
+            </div>
+        </details>
+
+        <details>
+            <summary>3. Arquitectura Básica del Sistema</summary>
+            <div class="content-body">
+                Todo sistema computacional moderno sigue el esquema de **Entrada, Procesamiento y Salida**. Los componentes se comunican a través de buses de datos, permitiendo que la información fluya desde los periféricos hacia la CPU y la memoria.
+            </div>
+        </details>
+
+        <details>
+            <summary>4. Clasificación según su Uso</summary>
+            <div class="content-body">
+                Existen diversos tipos según su capacidad:
+                <ul>
+                    <li><strong>Supercomputadoras:</strong> Para investigación nuclear y climática.</li>
+                    <li><strong>Mainframes:</strong> Para transacciones bancarias masivas.</li>
+                    <li><strong>Estaciones de Trabajo:</strong> Para diseño gráfico e ingeniería avanzada.</li>
+                    <li><strong>Microcomputadoras:</strong> Smartphones, tablets y computadoras portátiles.</li>
+                </ul>
+            </div>
+        </details>
+    </main>
+
+    <aside class="sidebar">
+        <details>
+            <summary class="info-header-btn">INFORMACIÓN ACADÉMICA</summary>
+            <div class="profile-card">
+                <div class="profile-img">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                    </svg>
+                </div>
+                
+                <span class="author-name">Diego Armando Quispe Mattos</span>
+                
+                <div class="uni-info">
+                    <strong>UBI</strong><br>
+                    UNIVERSIDAD BOLIVIANA DE INFORMÁTICA
+                </div>
+
+                <div class="career-label">Ingeniería en Sistemas</div>
+            </div>
+        </details>
+
+        <div style="margin-top: 20px; font-size: 0.8rem; color: #999; text-align: center; font-style: italic;">
+            * Haga clic en los títulos para desplegar la investigación o su perfil.
+        </div>
+    </aside>
+
+</div>
+
+</body>
+</html>

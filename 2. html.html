@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundamentos de Ingeniería de Software</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Estilos del menú lateral izquierdo */
+        #sidebar {
+            width: 300px;
+            background-color: #ffffff;
+            color: #333;
+            padding: 20px;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            position: fixed;
+            height: 100%;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #main-logo {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 30px;
+            cursor: pointer;
+            border-radius: 50%; /* Opcional, si quieres que se vea circular */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        #sidebar h2 {
+            font-size: 1.2em;
+            color: #007777;
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        #sidebar ul {
+            list-style-type: none;
+            padding: 0;
+            width: 100%;
+        }
+
+        #sidebar li {
+            margin-bottom: 10px;
+        }
+
+        #sidebar a {
+            text-decoration: none;
+            color: #555;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        #sidebar a:hover {
+            background-color: #e0f2f1;
+            color: #007777;
+        }
+
+        #user-info-icon-link {
+            margin-top: auto; /* Empuja el ícono hacia abajo */
+            padding-top: 30px;
+            text-decoration: none;
+            display: block;
+            width: 80px;
+            height: 80px;
+        }
+
+        #user-info-icon {
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            border-radius: 50%;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        /* Estilos del contenido principal */
+        #content {
+            margin-left: 320px; /* Ancho del sidebar + margen */
+            padding: 40px;
+            width: calc(100% - 320px);
+            background-color: #f9f9f9;
+        }
+
+        .section-content {
+            display: none; /* Oculta todas las secciones por defecto */
+        }
+
+        .section-content.active {
+            display: block; /* Muestra la sección activa */
+        }
+
+        h1, h2, h3 {
+            color: #333;
+        }
+
+        h1 {
+            border-bottom: 2px solid #007777;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #007777;
+            margin-top: 30px;
+        }
+
+        p {
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .image-placeholder {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        /* Estilos específicos para la sección de información personal */
+        #personal-info {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        #personal-info h2 {
+            text-align: center;
+        }
+
+        .info-field {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .info-label {
+            font-weight: bold;
+            color: #007777;
+            width: 150px;
+        }
+
+        .info-value {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="sidebar">
+        <a href="#inicio" onclick="showSection('inicio')">
+            <img src="aro_logo.png" alt="Logo de ARO Systems" id="main-logo">
+        </a>
+
+        <h2>Temas de Software</h2>
+        <ul>
+            <li><a href="#introduccion" onclick="showSection('introduccion')">1. Introducción al Software</a></li>
+            <li><a href="#clasificacion" onclick="showSection('clasificacion')">2. Clasificación del Software</a></li>
+            <li><a href="#ciclo-vida" onclick="showSection('ciclo-vida')">3. Ciclos de Vida del Software</a></li>
+            <li><a href="#metodologias" onclick="showSection('metodologias')">4. Metodologías de Desarrollo</a></li>
+            <li><a href="#calidad" onclick="showSection('calidad')">5. Calidad del Software</a></li>
+            <li><a href="#tendencias" onclick="showSection('tendencias')">6. Tendencias Actuales</a></li>
+        </ul>
+
+        <a href="#informacion-personal" id="user-info-icon-link" onclick="showSection('personal-info')">
+            <img src="user_icon.png" alt="Ícono de Usuario" id="user-info-icon">
+        </a>
+    </div>
+
+    <div id="content">
+
+        <div id="inicio" class="section-content active">
+            <h1>Bienvenido a la Guía Completa de Software</h1>
+            <p>Utiliza el menú de la izquierda para explorar los diferentes temas relacionados con la ingeniería de software, desde sus conceptos básicos hasta los complejos ciclos de vida y las tendencias más modernas.</p>
+            <p>Haciendo clic en el logo de "ARO Systems" en la parte superior izquierda, volverás a esta página de inicio.</p>
+            <p>Haciendo clic en el ícono de usuario en la parte inferior izquierda, verás la información personal del autor.</p>
+        </div>
+
+        <div id="introduccion" class="section-content">
+            <h1>1. Introducción al Software y la Ingeniería de Software</h1>
+            <h2>¿Qué es el Software?</h2>
+            <p>El software es el conjunto de programas de cómputo, procedimientos, reglas, documentación y datos asociados que forman parte de las operaciones de un sistema de computación. A diferencia del hardware, que es tangible, el software es el componente lógico.</p>
+            <p>En términos simples, es el conjunto de instrucciones que le dicen al hardware qué hacer.</p>
+            
+            <h2>¿Qué es la Ingeniería de Software?</h2>
+            <p>La Ingeniería de Software es una disciplina de la ingeniería que se ocupa de todos los aspectos de la producción de software, desde las etapas iniciales de la especificación del sistema hasta el mantenimiento del sistema después de que se ha puesto en uso.</p>
+            <p>Su objetivo es producir software de alta calidad de manera eficiente, dentro del presupuesto y en el plazo establecido.</p>
+            <img src="computer.png" alt="Sistema Computacional" class="image-placeholder">
+        </div>
+
+        <div id="clasificacion" class="section-content">
+            <h1>2. Clasificación del Software</h1>
+            <p>El software se puede clasificar en varias categorías principales basadas en su función y propósito:</p>
+            <ul>
+                <li><strong>Software de Sistema:</strong> Programas que gestionan y controlan el hardware de la computadora, como sistemas operativos (Windows, Linux, macOS) y controladores de dispositivos.</li>
+                <li><strong>Software de Aplicación:</strong> Programas diseñados para ayudar a los usuarios a realizar tareas específicas, como procesadores de texto (Word), hojas de cálculo (Excel), navegadores web (Chrome) y juegos.</li>
+                <li><strong>Software de Programación (Herramientas de Desarrollo):</strong> Programas utilizados por los programadores para crear, depurar, mantener o apoyar otros programas y aplicaciones, como compiladores, depuradores y editores de texto (VS Code, IntelliJ).</li>
+            </ul>
+        </div>
+
+        <div id="ciclo-vida" class="section-content">
+            <h1>3. Ciclos de Vida del Software (SDLC)</h1>
+            <p>El Ciclo de Vida del Desarrollo de Software (SDLC) es un proceso estructurado utilizado para planificar, crear, probar y desplegar un sistema de información.</p>
+            <h2>Etapas Comunes del SDLC</h2>
+            <ol>
+                <li><strong>Planificación y Análisis de Requisitos:</strong> Definir qué debe hacer el software. Es la etapa más crítica.</li>
+                <li><strong>Diseño:</strong> Crear la arquitectura del software, los diagramas de base de datos y la interfaz de usuario.</li>
+                <li><strong>Implementación (Codificación):</strong> Los desarrolladores escriben el código real basado en el diseño.</li>
+                <li><strong>Pruebas (Testing):</strong> Verificar que el software funcione correctamente y cumpla con los requisitos definidos. Se buscan errores (bugs).</li>
+                <li><strong>Despliegue (Deployment):</strong> El software se pone a disposición de los usuarios finales en un entorno de producción.</li>
+                <li><strong>Mantenimiento:</strong> Se corrigen errores descubiertos después del lanzamiento, se añaden nuevas funcionalidades y se actualiza el sistema.</li>
+            </ol>
+        </div>
+
+        <div id="ciclo-vida" class="section-content">
+            <h1>3. Ciclos de Vida del Software (SDLC)</h1>
+            <p>El Ciclo de Vida del Desarrollo de Software (SDLC) es un proceso estructurado utilizado para planificar, crear, probar y desplegar un sistema de información.</p>
+            <h2>Etapas Comunes del SDLC</h2>
+            <ol>
+                <li><strong>Planificación y Análisis de Requisitos:</strong> Definir qué debe hacer el software. Es la etapa más crítica.</li>
+                <li><strong>Diseño:</strong> Crear la arquitectura del software, los diagramas de base de datos y la interfaz de usuario.</li>
+                <li><strong>Implementación (Codificación):</strong> Los desarrolladores escriben el código real basado en el diseño.</li>
+                <li><strong>Pruebas (Testing):</strong> Verificar que el software funcione correctamente y cumpla con los requisitos definidos. Se buscan errores (bugs).</li>
+                <li><strong>Despliegue (Deployment):</strong> El software se pone a disposición de los usuarios finales en un entorno de producción.</li>
+                <li><strong>Mantenimiento:</strong> Se corrigen errores descubiertos después del lanzamiento, se añaden nuevas funcionalidades y se actualiza el sistema.</li>
+            </ol>
+        </div>
+
+        <div id="metodologias" class="section-content">
+            <h1>4. Metodologías de Desarrollo</h1>
+            <p>Existen diferentes enfoques para gestionar el proceso de desarrollo de software:</p>
+            <h2>Metodologías Tradicionales (Ej: Cascada)</h2>
+            <p>Es un enfoque lineal y secuencial donde cada etapa del ciclo de vida debe completarse antes de pasar a la siguiente. Es rígido y difícil de cambiar una vez que comienza.</p>
+            
+            <h2>Metodologías Ágiles (Ej: Scrum, Kanban)</h2>
+            <p>Es un enfoque iterativo e incremental. Se centra en la entrega temprana y continua de software valioso, la colaboración con el cliente y la respuesta al cambio. Scrum es muy popular, organizando el trabajo en ciclos cortos llamados "Sprints".</p>
+        </div>
+
+        <div id="calidad" class="section-content">
+            <h1>5. Calidad del Software</h1>
+            <p>La calidad del software no se refiere solo a la ausencia de errores, sino a un conjunto de atributos medibles:</p>
+            <ul>
+                <li><strong>Funcionalidad:</strong> ¿Hace lo que se supone que debe hacer?</li>
+                <li><strong>Fiabilidad:</strong> ¿Es robusto y estable? ¿Falla con frecuencia?</li>
+                <li><strong>Usabilidad:</strong> ¿Es fácil de aprender y usar para el usuario final?</li>
+                <li><strong>Eficiencia:</strong> ¿Utiliza los recursos del sistema (CPU, memoria) de manera óptima?</li>
+                <li><strong>Mantenibilidad:</strong> ¿Es fácil de modificar, actualizar o corregir en el futuro?</li>
+                <li><strong>Portabilidad:</strong> ¿Puede funcionar en diferentes plataformas o entornos?</li>
+            </ul>
+        </div>
+
+        <div id="tendencias" class="section-content">
+            <h1>6. Tendencias Actuales en Software</h1>
+            <p>El mundo del software está en constante evolución. Algunas de las tendencias más significativas incluyen:</p>
+            <ul>
+                <li><strong>Inteligencia Artificial (IA) y Aprendizaje Automático (Machine Learning):</strong> Integración de capacidades de IA en todo tipo de aplicaciones.</li>
+                <li><strong>Computación en la Nube (Cloud Computing):</strong> El cambio de la infraestructura local a servicios basados en la nube (AWS, Azure, Google Cloud).</li>
+                <li><strong>Ciberseguridad:</strong> Un enfoque masivo en proteger el software y los datos de amenazas cada vez más complejas.</li>
+                <li><strong>Internet de las Cosas (IoT):</strong> Desarrollo de software para dispositivos conectados en el hogar, la industria y la salud.</li>
+                <li><strong>Microservicios:</strong> Arquitectura de software que construye aplicaciones como un conjunto de pequeños servicios independientes.</li>
+            </ul>
+        </div>
+
+        <div id="personal-info" class="section-content">
+            <h1>Información de Contacto</h1>
+            <h2>Datos Personales</h2>
+            <div class="info-field">
+                <span class="info-label">Nombre Completo:</span>
+                <span class="info-value">Diego Armando Quispe Mattos</span>
+            </div>
+            <div class="info-field">
+                <span class="info-label">Universidad:</span>
+                <span class="info-value">UBI, UNIVERSIDAD BOLIVIANA DE INFORMÁTICA</span>
+            </div>
+            <div class="info-field">
+                <span class="info-label">Carrera:</span>
+                <span class="info-value">Ingeniería en Sistemas</span>
+            </div>
+            <p style="text-align: center; margin-top: 30px; color: #999;">Esta página fue creada como parte de un proyecto académico sobre ingeniería de software.</p>
+        </div>
+
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Oculta todas las secciones de contenido
+            const sections = document.querySelectorAll('.section-content');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Muestra la sección solicitada
+            const selectedSection = document.getElementById(sectionId);
+            if (selectedSection) {
+                selectedSection.classList.add('active');
+            }
+        }
+    </script>
+
+</body>
+</html>
